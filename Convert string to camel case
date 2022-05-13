@@ -1,0 +1,19 @@
+function toCamelCase(str){
+  let dl = str.length;
+  let newStr = "";
+  if (!str) return newStr;
+  if (str[0] >= 'A' && str[0] <= 'z') newStr += str[0];
+  for (let i = 1; i < dl-1; i++) {
+    if (str[i] === ' ' || str[i] === '_'  || str[i] === '-' ) continue;
+    else if (str[i-1] === ' ' || str[i-1] === '_'  || str[i-1] === '-' )
+      newStr += str[i].toUpperCase();
+    else newStr += str[i];
+  }
+  newStr += str[dl-1];
+  return newStr;
+}
+console.log(toCamelCase("An empty string was provided but not returned"));
+console.log(toCamelCase("the_stealth_warrior"));
+console.log(toCamelCase("The-Stealth-Warrior"));
+console.log(toCamelCase(""));
+console.log(toCamelCase('A-B-C'));
