@@ -1,0 +1,14 @@
+// There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+function findUniq(arr) {
+
+  let al = arr.length;
+  arr.sort();
+  
+  if (arr[0] != arr[1]) return arr[0];
+  
+  for (let i = 0; i < al-1; i++) {
+    if (arr[i] === arr[i+1]) continue;
+    return arr[i+1];  
+  }
+}
