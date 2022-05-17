@@ -1,0 +1,6 @@
+function solution(string) {
+ 
+  // Первый аргумент replace - RegEdit, регулярное выражение
+  return (string.replace(/([A-Z])/g, ' $1'));
+}
+console.log(solution('camelCasingTest'));
