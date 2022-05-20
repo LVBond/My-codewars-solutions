@@ -1,0 +1,29 @@
+// In this kata you have to create all permutations of a 
+// non empty input string and remove duplicates, if present. 
+// This means, you have to shuffle all letters 
+// from the input in all possible orders.
+
+function permutations(string) {
+  const permut = [];
+
+  function gen_permutations (prefix, remaining) {
+    if (remaining.length === 0) {
+      if (!permut.includes(prefix)) { // чтобы не было повторений
+        permut.push(prefix);
+      }
+      return;
+    }
+    for (let i = 0; i < remaining.length; i++) {
+      gen_permutations(
+        prefix + remaining[i],
+        remaining.slice(0, i) + remaining.slice(i + 1) 
+        // в остаток берем всё, кроме префикса
+      );
+    }
+  }
+  gen_permutations('', string);
+  return permut;
+ 
+        
+}
+console.log(permutations("1234"));
